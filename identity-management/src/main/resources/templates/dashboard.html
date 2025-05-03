@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Identity Management System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{layout :: body(content=~{::content})}">
+    <div th:fragment="content">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Welcome to Your Dashboard</h2>
+                <p class="lead">Hello, <span sec:authentication="name">Username</span>!</p>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Account Information</h5>
+                        <p class="card-text">View and manage your account details.</p>
+                        <a th:href="@{/profile}" class="btn btn-primary">My Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Edit Profile</h5>
+                        <p class="card-text">Update your personal information.</p>
+                        <a th:href="@{/profile/edit}" class="btn btn-primary">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" sec:authorize="hasRole('ADMIN')">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Admin Console</h5>
+                        <p class="card-text">Manage users and system settings.</p>
+                        <a th:href="@{/admin/dashboard}" class="btn btn-danger">Admin Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Recent Activity</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <p>Your account information is secure. Last login was <span th:text="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}">01 Jan 2025 12:00</span></p>
+                        </div>
+                        <p>The Identity Management System provides secure access control and user management. Use the navigation options above to manage your account.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS & Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

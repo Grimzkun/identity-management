@@ -1,0 +1,101 @@
+/* General styles */
+body {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* Card styles */
+.card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    border-top-left-radius: 0.5rem !important;
+    border-top-right-radius: 0.5rem !important;
+}
+
+/* Form styles */
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Avatar placeholder */
+.avatar-placeholder {
+    font-weight: bold;
+    color: #6c757d;
+}
+
+/* Table styles */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Dashboard cards */
+.dashboard-card {
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Button styles */
+.btn {
+    border-radius: 0.25rem;
+}
+
+/* Admin dashboard specific styles */
+.admin-stat-card {
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Custom backgrounds */
+.bg-light-gray {
+    background-color: #f1f3f5;
+}
+
+/* Custom text colors */
+.text-muted-dark {
+    color: #6c757d;
+}
+
+/* Custom alert styles */
+.alert {
+    border-radius: 0.25rem;
+}
+
+/* Custom badge styles */
+.badge {
+    font-weight: 500;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.25rem;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}
